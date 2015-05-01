@@ -34,12 +34,10 @@ namespace TesteDeLogin
 					}
 				}
 			};
-
-
 		}
 
 		public class Veiculo {
-			public int IdVeiculo { get; set;	}
+			public int IdVeiculo { get; set; }
 			public int IdConta { get; set; }
 			public string ContaNome { get; set; }
 			public string Nome { get; set; }
@@ -76,7 +74,6 @@ namespace TesteDeLogin
 				//
 				// Montando o cookie para a próxima chamada
 				//
-
 				IEnumerable<Cookie> responseCookies = cookies.GetCookies (uri).Cast<Cookie> ();
 				foreach (Cookie cookie in responseCookies) {
 					await MainPage.DisplayAlert (cookie.Name, cookie.Value, "Sim");
@@ -87,31 +84,7 @@ namespace TesteDeLogin
 				var response2 = await client.GetAsync (uri);
 
 				if (response2.IsSuccessStatusCode) {
-
-//					var veiculos = new List<Veiculo> ();
-//
-//					veiculos.Add (new Veiculo () { 
-//						IdConta = 1,
-//						ContaNome = "Marcelo Amorim",
-//						IdVeiculo = 1,
-//						Nome = "Teste de Serialização",
-//						Placa = "XYZ 2345",
-//						Latitude = "22.8987872",
-//						Longitude = "42.928394"
-//					});
-//
-//					veiculos.Add (new Veiculo () { 
-//						IdConta = 2,
-//						ContaNome = "Daniel Amorim",
-//						IdVeiculo = 1,
-//						Nome = "Teste de Serialização",
-//						Placa = "KKK 1234",
-//						Latitude = "-22.8987872",
-//						Longitude = "-42.928394"
-//					});
-//
-//					string output = Newtonsoft.Json.JsonConvert.SerializeObject (veiculos);
-
+					
 					var veiculos = response2.Content.ReadAsStringAsync().Result;
 					var resposta = JsonConvert.DeserializeObject<List<Veiculo>> (veiculos);
 
