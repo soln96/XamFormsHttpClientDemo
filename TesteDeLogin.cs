@@ -63,8 +63,8 @@ namespace TesteDeLogin
 
 			var values = new Dictionary<string, string>();
 
-			values.Add ("username", "mobrj");
-			values.Add ("password", "1234");
+			values.Add ("username", "xxxx");
+			values.Add ("password", "xxxx");
 			values.Add ("charset", Encoding.UTF8.ToString());
 			values.Add ("Content-Type", "application/x-www-form-urlencoded");
 
